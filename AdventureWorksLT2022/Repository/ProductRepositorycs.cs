@@ -57,20 +57,23 @@ namespace AdventureWorksLT2022.Repositories
                         {
                             products.Add(new Product
                             {
-                                ProductID = reader.GetInt32(0),
-                                Name = reader.GetString(1),
-                                ProductNumber = reader.GetString(1),
-                                Color = reader.GetString(1),
-                                StandardCost = reader.GetDecimal(1),
-                                ListPrice = reader.GetDecimal(1),
-                                Size = reader.GetString(1),
-                                Weight = reader.GetDecimal(1),
-                                ProductCategoryID = reader.GetInt32(1),
-                                ProductModelID = reader.GetInt32(1),
-                                SellStartDate = reader.GetDateTime(1),
-                                SellEndDate = reader.GetDateTime(1),
-                                DiscontinuedDate = reader.GetDateTime(1),
-                                ModifiedDate = reader.GetDateTime(1),
+                                ProductID = reader.GetInt32(reader.GetOrdinal("ProductID")),
+                                Name = reader.GetString(reader.GetOrdinal("Name")),
+                                ProductNumber = reader.GetString(reader.GetOrdinal("ProductNumber")),
+                                Color = reader.IsDBNull(reader.GetOrdinal("Color")) ? null : reader.GetString(reader.GetOrdinal("Color")),
+                                StandardCost = reader.GetDecimal(reader.GetOrdinal("StandardCost")),
+                                ListPrice = reader.GetDecimal(reader.GetOrdinal("ListPrice")),
+                                Size = reader.IsDBNull(reader.GetOrdinal("Size")) ? null : reader.GetString(reader.GetOrdinal("Size")),
+                                Weight = reader.IsDBNull(reader.GetOrdinal("Weight")) ? (decimal?)null : reader.GetDecimal(reader.GetOrdinal("Weight")),
+                                ProductCategoryID = reader.IsDBNull(reader.GetOrdinal("ProductCategoryID")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("ProductCategoryID")),
+                                ProductModelID = reader.IsDBNull(reader.GetOrdinal("ProductModelID")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("ProductModelID")),
+                                SellStartDate = reader.GetDateTime(reader.GetOrdinal("SellStartDate")),
+                                SellEndDate = reader.IsDBNull(reader.GetOrdinal("SellEndDate")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("SellEndDate")),
+                                DiscontinuedDate = reader.IsDBNull(reader.GetOrdinal("DiscontinuedDate")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("DiscontinuedDate")),
+                                ThumbNailPhoto = reader.IsDBNull(reader.GetOrdinal("ThumbNailPhoto")) ? null : (byte[])reader["ThumbNailPhoto"],
+                                ThumbnailPhotoFileName = reader.IsDBNull(reader.GetOrdinal("ThumbnailPhotoFileName")) ? null : reader.GetString(reader.GetOrdinal("ThumbnailPhotoFileName")),
+                                RowGuid = reader.GetGuid(reader.GetOrdinal("RowGuid")),
+                                ModifiedDate = reader.GetDateTime(reader.GetOrdinal("ModifiedDate"))
                             });
                         }
                     }
@@ -99,20 +102,23 @@ namespace AdventureWorksLT2022.Repositories
                         {
                             return new Product
                             {
-                                ProductID = reader.GetInt32(0),
-                                Name = reader.GetString(1),
-                                ProductNumber = reader.GetString(1),
-                                Color = reader.GetString(1),
-                                StandardCost = reader.GetDecimal(1),
-                                ListPrice = reader.GetDecimal(1),
-                                Size = reader.GetString(1),
-                                Weight = reader.GetDecimal(1),
-                                ProductCategoryID = reader.GetInt32(1),
-                                ProductModelID = reader.GetInt32(1),
-                                SellStartDate = reader.GetDateTime(1),
-                                SellEndDate = reader.GetDateTime(1),
-                                DiscontinuedDate = reader.GetDateTime(1),
-                                ModifiedDate = reader.GetDateTime(1),
+                                ProductID = reader.GetInt32(reader.GetOrdinal("ProductID")),
+                                Name = reader.GetString(reader.GetOrdinal("Name")),
+                                ProductNumber = reader.GetString(reader.GetOrdinal("ProductNumber")),
+                                Color = reader.IsDBNull(reader.GetOrdinal("Color")) ? null : reader.GetString(reader.GetOrdinal("Color")),
+                                StandardCost = reader.GetDecimal(reader.GetOrdinal("StandardCost")),
+                                ListPrice = reader.GetDecimal(reader.GetOrdinal("ListPrice")),
+                                Size = reader.IsDBNull(reader.GetOrdinal("Size")) ? null : reader.GetString(reader.GetOrdinal("Size")),
+                                Weight = reader.IsDBNull(reader.GetOrdinal("Weight")) ? (decimal?)null : reader.GetDecimal(reader.GetOrdinal("Weight")),
+                                ProductCategoryID = reader.IsDBNull(reader.GetOrdinal("ProductCategoryID")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("ProductCategoryID")),
+                                ProductModelID = reader.IsDBNull(reader.GetOrdinal("ProductModelID")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("ProductModelID")),
+                                SellStartDate = reader.GetDateTime(reader.GetOrdinal("SellStartDate")),
+                                SellEndDate = reader.IsDBNull(reader.GetOrdinal("SellEndDate")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("SellEndDate")),
+                                DiscontinuedDate = reader.IsDBNull(reader.GetOrdinal("DiscontinuedDate")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("DiscontinuedDate")),
+                                ThumbNailPhoto = reader.IsDBNull(reader.GetOrdinal("ThumbNailPhoto")) ? null : (byte[])reader["ThumbNailPhoto"],
+                                ThumbnailPhotoFileName = reader.IsDBNull(reader.GetOrdinal("ThumbnailPhotoFileName")) ? null : reader.GetString(reader.GetOrdinal("ThumbnailPhotoFileName")),
+                                RowGuid = reader.GetGuid(reader.GetOrdinal("RowGuid")),
+                                ModifiedDate = reader.GetDateTime(reader.GetOrdinal("ModifiedDate"))
                             };
                         }
                     }
